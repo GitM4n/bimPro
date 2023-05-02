@@ -102,13 +102,14 @@ dropdownThree.addEventListener('click', ()=>{
 const spoiler = document.querySelectorAll('.spoiler-title');
 spoiler.forEach(title => {
   title.addEventListener('click', ()=>{
-   
+    
     if(title.nextElementSibling.classList.contains('_show')){
       title.nextElementSibling.classList.remove('_show');
-      title.classList.remove('mark');
+      title.classList.remove('mark')
     }else{
       spoiler.forEach((s) =>{
         s.nextElementSibling.classList.remove('_show')
+        s.classList.remove('mark')
       })
       title.nextElementSibling.classList.add('_show')
       title.classList.add('mark');
@@ -141,6 +142,30 @@ tooltip.forEach((pictures)=>{
     
   });
 })
+
+
+const links = document.querySelectorAll('a[href^="#"]');
+
+// добавляем обработчик клика на каждую из них
+links.forEach(link => {
+  link.addEventListener('click', function(e) {
+  e.preventDefault(); // отменяем стандартное поведение ссылки
+
+  const targetId = this.getAttribute('href'); // получаем id элемента, к которому нужно прокрутить
+  
+  // проверяем, есть ли элемент на странице с таким id
+  const targetEl = document.querySelector(targetId);
+  if (!targetEl) return;
+
+  const topOffset = targetEl.offsetTop; // получаем расстояние от верха страницы до элемента
+
+  // делаем плавную прокрутку к элементу
+    window.scrollTo({
+    top: topOffset,
+    behavior: 'smooth'
+    });
+  });
+});
 
 
 
