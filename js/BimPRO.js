@@ -15,15 +15,6 @@ function runCounter() {
     }, 100);
   }
 
-
-
-
-
-
-
-
-
-
 const according = document.querySelector(".warranty");
 
 let options = {
@@ -45,7 +36,7 @@ let options = {
   }, options);   
   observer.observe(according);   
   
-  
+/////////////////////////////////////////////////////////////////////////////////////////////////////  
 
 const steps = document.querySelector('.Steps');
 const stepArrow = document.querySelectorAll('.steps__arrow')
@@ -63,6 +54,7 @@ let stepsObrerve = new IntersectionObserver((e)=>{
 }, options);
 stepsObrerve.observe(steps)
 
+//////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 const dropdownOne = document.querySelector('.helpBusiness__selector');
@@ -94,7 +86,7 @@ dropdownThree.addEventListener('click', ()=>{
 })
 
 
-
+////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -120,6 +112,8 @@ spoiler.forEach(title => {
 })
 
 
+///////////////////////////////////////////////////////////////////////////////////////////
+
 const tooltip = document.querySelectorAll('.tooltip');
 const tooltipText = document.querySelectorAll('.tooltipText');
 
@@ -142,6 +136,9 @@ tooltip.forEach((pictures)=>{
     
   });
 })
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 const links = document.querySelectorAll('a[href^="#"]');
@@ -169,8 +166,82 @@ links.forEach(link => {
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////
 
 
+
+const filterTitle = document.querySelector('.filters-spoiler__title');
+const filterItems = document.querySelector('.filters-spoiler__items')
+
+filterTitle.addEventListener('click', ()=> {
+  filterItems.classList.toggle('filter-show')
+  if (window.innerWidth < 1399 && !filterItems.classList.contains('filter-show')){
+   
+  }
+  
+})
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+function hideContent(){
+  const dropdownMenu = document.querySelectorAll('.dropdown-menu');
+  dropdownMenu.forEach(item => {
+
+    const dropdownTextContents = item.querySelectorAll('.dropdown-content');
+    dropdownTextContents.forEach((e)=>{
+      e.classList.remove('_open')
+    })
+
+    const dropdownTitles = item.querySelectorAll('.dropdown-title');
+    dropdownTitles.forEach(i => {
+      i.classList.remove('_active')
+    })
+
+  })
+
+  
+}
+hideContent()
+
+dropdownItems.forEach(dropdownItem => {
+  const dropdownTitle = dropdownItem.querySelector('.dropdown-title');
+  const dropdowntTextContent = dropdownItem.querySelector('.dropdown-content');
+
+  dropdownTitle.addEventListener('click', ()=>{
+    if (!dropdowntTextContent.classList.contains('_open')){
+      hideContent();
+      dropdowntTextContent.classList.add('_open');
+      dropdownTitle.classList.add('_active')
+    }else{
+      dropdowntTextContent.classList.remove('_open');
+      dropdownTitle.classList.remove('_active')
+    }
+  })
+})
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+
+const sendRequest = document.querySelector('.request__send')
+
+const popUp = document.getElementById('popup')
+const popUpClose = document.querySelector('.popup-close')
+
+sendRequest.addEventListener('click', ()=>{
+  popUp.classList.add('open')
+  document.body.classList.add('_lock')
+})
+
+popUpClose.addEventListener('click', ()=>{
+    popUp.classList.remove('open')
+ 
+  document.body.classList.remove('_lock')
+})
 
 
 
