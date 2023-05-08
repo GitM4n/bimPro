@@ -1780,6 +1780,12 @@ ul .important__text-2{
 
 
 @media (max-width:1099px){
+     .popup{
+        visibility: visible;
+        opacity: 1;
+        position: relative;
+    }
+
 
     .request__title,.request__send{
        display: none;
