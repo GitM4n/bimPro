@@ -1,3 +1,11 @@
+const imgs = document.querySelectorAll('img')
+
+imgs.forEach(img => {
+  img.setAttribute('loading', 'lazy')
+})
+
+///////////////////////////////////////////////////////////////////////////////////
+
 const accordingCounterMax = document.querySelector('.according__counter_max');
 const accordingCounterMin = document.querySelector('.according__counter_min');
 
